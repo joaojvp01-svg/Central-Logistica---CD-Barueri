@@ -1,0 +1,30 @@
+<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Prancheta de coleta com três vias e caixa"><defs>
+  <linearGradient id="gc" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FF6B00"/><stop offset=".22" stop-color="#9A3A06"/><stop offset=".6" stop-color="#2A1108"/><stop offset="1" stop-color="#120807"/></linearGradient>
+  <linearGradient id="lc" x1="0" x2="0" y1="1" y2="0"><stop offset="0" stop-color="#FF7A1A" stop-opacity="0"/><stop offset=".5" stop-color="#FF8A2A"/><stop offset="1" stop-color="#FF7A1A" stop-opacity="0"/></linearGradient>
+  <filter id="fc" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="360" height="200" fill="url(#gc)"/>
+<line x1="70" y1="215" x2="190" y2="-15" stroke="#FF7A1A" stroke-width="6" opacity=".55" filter="url(#fc)"/>
+<line x1="70" y1="215" x2="190" y2="-15" stroke="url(#lc)" stroke-width="2.2"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <g stroke="#fff" stroke-width="2" stroke-opacity=".55">
+    <rect x="58" y="62" width="70" height="92" rx="4" fill="#120807" fill-opacity=".35" transform="rotate(-10 93 108)"/>
+    <rect x="66" y="58" width="70" height="92" rx="4" fill="#120807" fill-opacity=".45" transform="rotate(-5 101 104)"/>
+  </g>
+  <g transform="translate(150 34)" stroke="#fff" stroke-width="2.5">
+    <rect width="92" height="132" rx="8" fill="#fff" fill-opacity=".07"/>
+    <rect x="28" y="-8" width="36" height="16" rx="4" fill="#2A1108"/>
+    <g stroke-width="2.2">
+      <path d="M16 34 l5 5 l9 -10" stroke="#FF7A1A" stroke-width="3"/><path d="M40 35 h36" stroke-opacity=".8"/>
+      <path d="M16 62 l5 5 l9 -10" stroke="#FF7A1A" stroke-width="3"/><path d="M40 63 h30" stroke-opacity=".8"/>
+      <rect x="16" y="83" width="14" height="14" rx="2" stroke-opacity=".8"/><path d="M40 91 h36" stroke-opacity=".8"/>
+      <path d="M16 116 h60" stroke-opacity=".35"/>
+    </g>
+  </g>
+  <g transform="translate(262 92)" stroke="#fff" stroke-width="2.5">
+    <path d="M0 22 L32 8 L64 22 L64 64 L32 78 L0 64 Z" fill="#FF7A1A" fill-opacity=".18"/>
+    <path d="M0 22 L32 36 L64 22 M32 36 V78" />
+    <path d="M32 -30 V-4 M22 -20 L32 -30 L42 -20" stroke="#FF7A1A" stroke-width="3"/>
+  </g>
+  <g font-family="Consolas, monospace" font-size="11" font-weight="700" fill="#FF7A1A" stroke="none"><text x="62" y="176">1ª · 2ª · 3ª via</text></g>
+</g></svg>

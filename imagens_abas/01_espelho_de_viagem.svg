@@ -1,0 +1,26 @@
+<svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Caminhão em rota com pontos de entrega"><defs>
+  <linearGradient id="ge" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#FF6B00"/><stop offset=".22" stop-color="#9A3A06"/><stop offset=".6" stop-color="#2A1108"/><stop offset="1" stop-color="#120807"/></linearGradient>
+  <linearGradient id="le" x1="0" x2="0" y1="1" y2="0"><stop offset="0" stop-color="#FF7A1A" stop-opacity="0"/><stop offset=".5" stop-color="#FF8A2A"/><stop offset="1" stop-color="#FF7A1A" stop-opacity="0"/></linearGradient>
+  <filter id="fe" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect width="360" height="200" fill="url(#ge)"/>
+<line x1="70" y1="215" x2="190" y2="-15" stroke="#FF7A1A" stroke-width="6" opacity=".55" filter="url(#fe)"/>
+<line x1="70" y1="215" x2="190" y2="-15" stroke="url(#le)" stroke-width="2.2"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M40 160 C 95 160, 105 120, 150 118 S 230 70, 318 58" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-dasharray="1 9"/>
+  <g transform="translate(40 160)"><circle r="6" fill="#FF7A1A"/><circle r="11" stroke="#FF7A1A" stroke-opacity=".5" stroke-width="2"/></g>
+  <g transform="translate(150 118)"><circle r="4.5" fill="#fff" fill-opacity=".9"/></g>
+  <g transform="translate(318 46)" stroke="#FF7A1A" stroke-width="2.5"><path d="M0 14 C -9 3 -9 -10 0 -10 C 9 -10 9 3 0 14 Z" fill="#FF7A1A" fill-opacity=".25"/><circle cy="-2" r="3" fill="#FF7A1A"/></g>
+  <g transform="translate(168 112)" stroke="#fff" stroke-width="2.5">
+    <rect x="0" y="0" width="98" height="50" rx="4" fill="#fff" fill-opacity=".06"/>
+    <path d="M98 14 h26 l14 16 v20 h-40 z" fill="#fff" fill-opacity=".06"/>
+    <path d="M106 20 h14 l8 10 h-22 z" stroke-width="2"/>
+    <circle cx="24" cy="54" r="9" fill="#120807"/><circle cx="24" cy="54" r="3" fill="#fff"/>
+    <circle cx="118" cy="54" r="9" fill="#120807"/><circle cx="118" cy="54" r="3" fill="#fff"/>
+    <path d="M14 16 h40 M14 27 h28 M14 38 h34" stroke="#FF7A1A" stroke-width="3"/>
+  </g>
+  <g transform="translate(232 70) rotate(6)" stroke="#fff" stroke-width="2">
+    <rect width="44" height="54" rx="3" fill="#120807" fill-opacity=".7"/>
+    <path d="M9 13 h26 M9 22 h26 M9 31 h18 M9 40 h22" stroke-opacity=".75"/>
+  </g>
+</g></svg>
