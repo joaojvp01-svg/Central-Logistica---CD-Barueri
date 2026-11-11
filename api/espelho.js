@@ -8,7 +8,7 @@
 
 const URL_REDIS = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
 const TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-const NAMESPACES = ["pe_vet", "pe_vd", "man_vet", "man_vd"];
+const NAMESPACES = ["pe_vet", "pe_vd", "man_vet", "man_vd", "esp"];   // esp = Entregas Especiais
 
 async function redis(cmd) {
   const r = await fetch(URL_REDIS, {
