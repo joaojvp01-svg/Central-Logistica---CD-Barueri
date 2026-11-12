@@ -2,13 +2,14 @@
 //   pe_vet / pe_vd   → pedidos especiais (reentrega, promocional…) por nota fiscal
 //   man_vet / man_vd → entregas manuais adicionadas nas rotas (por data + número da rota)
 // GET    /api/espelho?ns=pe_vet                 → { campo: valor, ... }
+// GET    /api/espelho?ns=canhoto&campo=ID       → { valor } (um campo só)
 // POST   /api/espelho  { ns, campo, valor }     → grava
 // DELETE /api/espelho  { ns, campo }            → apaga
 // Usa as variáveis criadas pela integração Upstash na Vercel (KV_REST_API_* ou UPSTASH_REDIS_REST_*).
 
 const URL_REDIS = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
 const TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
-const NAMESPACES = ["pe_vet", "pe_vd", "man_vet", "man_vd", "esp"];   // esp = Entregas Especiais
+const NAMESPACES = ["pe_vet", "pe_vd", "man_vet", "man_vd", "esp", "canhoto"];   // esp = Entregas Especiais · canhoto = imagem do canhoto (por id da entrega)
 
 async function redis(cmd) {
   const r = await fetch(URL_REDIS, {
@@ -36,7 +37,13 @@ module.exports = async (req, res) => {
   const chave = `espelho:${ns}`;
 
   try {
+    if (req.method === "GET" && req.query && req.query.campo) {
+      const v = await redis(["HGET", chave, String(req.query.campo).slice(0, 200)]);
+      let valor = null; try { valor = v == null ? null : JSON.parse(v); } catch { valor = v; }
+      return res.status(200).json({ valor });
+    }
     if (req.method === "GET") {
+      if (ns === "canhoto") return res.status(400).json({ erro: "informe o campo" });
       const plano = (await redis(["HGETALL", chave])) || [];
       const obj = {};
       for (let i = 0; i < plano.length; i += 2) {
@@ -48,7 +55,7 @@ module.exports = async (req, res) => {
     if (!campo) return res.status(400).json({ erro: "campo obrigatório" });
     if (req.method === "POST") {
       const valor = JSON.stringify(corpo.valor ?? null);
-      if (valor.length > 100000) return res.status(413).json({ erro: "valor muito grande" });
+      if (valor.length > (ns === "canhoto" ? 900000 : 100000)) return res.status(413).json({ erro: "valor muito grande" });
       await redis(["HSET", chave, campo, valor]);
       return res.status(200).json({ ok: true });
     }
